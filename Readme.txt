@@ -16,6 +16,9 @@ index.html file  as client to start using This App
 
 
 Note:click 'stop app.bat' to Stop This App.
+    :when Apps is not Running Automaticaly Type:http://localhost:8000/
+    when you got errors may be check if there is other Apps running on Port:8000
+    or See if It not Firewall or Antivirus who blocked your Port Stop Those Apps or Disable Firewal
      
 
 Thanks
@@ -31,6 +34,7 @@ create database called:projecttest on your wampserver
 Then Through git command or command prompt type"php artisan migrate" on projecttest directory to migrate database table
 
 Then type"php artisan serve"  to run This App Then 
+type in your browser http://localhost:8000/ to run Your Apps
 
 Add products name  and price in your database  and customize it with discount Parameters
 
