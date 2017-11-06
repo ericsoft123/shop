@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+<head>
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+<meta charset="utf-8">
+
+<title>client</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+  
+ <script type="text/javascript" src="js/jquery.js"></script> 
+<script type="text/javascript" src="js/bootstrap.min.js"></script> 
+ <script type="text/javascript" src="js/jsajax.js"></script>       
+         
+</head>
+
+<body>
+
+<!---->
+<!-- <form name="validate" id="validate">
+                           <div class="alert alert-danger print-error-msg" style="display:none">
+        <ul></ul>
+    </div>
+                            <div>
+                            	<input type="text" id="title" name="title">
+                            </div>
+                            	<div>
+                            		<input type="text" id="body"  name="body">
+                            	</div>
+                            	<div>
+                            		<input type="submit" id="submitform" value="submit value">
+                            	</div>
+                            	
+                            	
+                            </form>-->
+<!---->
+<nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+
+                    <!-- Collapsed Hamburger -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- Branding Image -->
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                       brand
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                            
+                            <li><a href="" id="name_user"></a></li>
+                            <li><a href="" onClick="return purchasedata()" id="all_purchase">view all Purchase</a></li>
+                            <li><a href="" id="lognav">Login</a></li>
+                            <li><a href="" id="regnav" >Register</a></li>
+                     
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" id="logout">
+                                    <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu" >
+                                    <li>
+                                       <a href="" id="logoutnav">Log out</a>
+
+                                        
+                                    </li>
+                                </ul>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+<!---->
+<div class="container">
+
+                
+
+<div class="table-responsive" id="productpurchase">
+                            
+
+                        </div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-7">
+    	<div class="well" id="register_page"  style="display:none">
+    	<div class="alert alert-danger print-error-msg" style="display:none">
+        <ul id="message"></ul>
+			</div>
+	<p class="text-center" id="titlechange">Register Page</p>
+		<hr>
+		<form class="form-horizontal" name="formdata" id="formdata">
+ 
+                        <div class="form-group" id="name_hide">
+                            <label for="name" class="col-md-4 control-label">Name</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="name" value="" required autofocus>
+
+                                <!--@if ($errors->has('name'))-->
+                                    <span class="help-block">
+                                        <strong><!--{{ $errors->first('name') }}--></strong>
+                                    </span>
+                               <!-- @endif-->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email" value="" required>
+
+                               <!-- @if ($errors->has('email'))-->
+                                    <span class="help-block">
+                                        <strong><!--{{ $errors->first('email') }}--></strong>
+                                    </span>
+                               <!-- @endif-->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="col-md-4 control-label">Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required>
+
+                               <!-- @if ($errors->has('password'))-->
+                                    <span class="help-block">
+                                        <strong><!--{{ $errors->first('password') }}--></strong>
+                                    </span>
+                             <!--   @endif-->
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="confirm_hide">
+                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary" id="register">
+                                    Register
+                                </button>
+                                <button type="submit" class="btn btn-primary" id="login">
+                                    login
+                                </button>
+                                
+                            </div>
+                        </div>
+                    </form>
+	</div>
+    </div>
+    <div class="col-md-2"></div>
+    
+</div>
+ <div class="row" id="homepage">
+    
+    <div class="col-md-12" id="profile_hide">
+    	
+    <img src="images/open-shop.jpg" class="img-responsive">
+    
+    </div>
+    
+</div> 
+<!--Purchase-->
+<div class="row" id="productdata">
+    
+    
+    
+    
+</div>
+<!--Purchase-->
+	<!--Table transaction Table-->
+	<div class="table-responsive" id="tabledata">
+                            
+
+                        </div>
+	<!---table details---->	
+</div>
+ <!--MY MODAL-->
+ <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                               <form name="formbuy" id="formbuy">
+                                <div class="modal-dialog">
+                                <div class="modal-content animated bounceInRight">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" ><span aria-hidden="true" >&times;</span><span class="sr-only" >Close</span></button>
+                                            <i class="fa fa-laptop modal-icon"></i>
+                                            <h4 class="modal-title">Buyer Page</h4>
+                                            <small class="font-bold"><!--text--></small>
+                                        </div>
+                                        <div class="modal-body">
+                                            
+											
+                                                  	        <div class="form-group"><label>Username</label> <input type="text" placeholder="Enter your username" class="form-control" id="customer_email" name="customer_email" value="" readonly></div>
+                                                 	          
+                                                  	          <div class="form-group" id="productid_hide"><label>Username</label> <input type="text" placeholder="Enter your username" class="form-control" id="product_id" name="product_id" value="" readonly></div>
+                                                  	          
+                                                   	         <div class="form-group"><label>Product Name</label> <input type="text" placeholder="Enter your name" class="form-control" id="product_name" name="product_name" value=""></div>
+                                                   	         
+                                                   	         
+                                                   	          <div class="form-group"><label>Product Price</label> <input type="text" placeholder="Enter your email" class="form-control" id="product_price" name="product_price" value=""></div>
+                                                   	          
+                                                   	          <div class="form-group"><label>Product Quantity</label> <input type="text" placeholder="Enter quantity" class="form-control" id="quantity" name="quantity" value=""></div>
+                                                   	           <div class="form-group"><label>Total Before Discount</label> <input type="text" placeholder="This is The price Before Discount" class="form-control" id="total" name="total" value=""></div>
+                                                   	          
+                                                   	           <div class="form-group"><label>Discount</label> <input type="text" placeholder="This is Discount Price" class="form-control" id="discount" name="discount" value=""></div>
+                                                  	             
+                                                  	             <div class="form-group"><label>Total after Discount</label> <input type="text" placeholder="Total After Discount" class="form-control" id="total_afterdiscount" name="total_afterdiscount" value=""></div>
+                                                  	             
+                                                   	             <div class="form-group" id="customername_hide"><label>Discount</label> <input type="text" placeholder="Enter your name" class="form-control" id="customer_name" name="customer_name" value=""></div>
+                                                   	           
+                                                   	           
+                                                   	            
+                                                   	        
+                                                   	         
+                                                   	         
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-white" data-dismiss="modal" id="closemodal">Close</button>
+                                            <button type="submit" class="btn btn-primary" id="purchase">Purchase</button>
+                                        </div>
+                                                   
+                                    </div>
+                                </div>
+                                </form>
+                                
+                            </div>
+                            
+           
+     
+<!---->
+</body>
+</html>
